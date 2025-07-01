@@ -1,10 +1,4 @@
 
-// ✅ No imports, use global
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
-
-// Firebase config
-
 const firebaseConfig = {
   apiKey: "AIzaSyC4UJXlvHhSSSyfsf8G1he339GoGaTenps",
   authDomain: "pet-sscci.firebaseapp.com",
@@ -13,6 +7,9 @@ const firebaseConfig = {
   messagingSenderId: "900791572438",
   appId: "1:900791572438:web:834cdae9e5d1f37d5bf677"
 };
+
+firebase.initializeApp(firebaseConfig); // ✅ global reference
+const auth = firebase.auth();           // ✅ global reference
 
 
 // 🔐 Sign Up
