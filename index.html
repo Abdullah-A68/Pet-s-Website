@@ -3,9 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Sliding Login & Signup</title>
-  <script src="auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js"></script>
   <link rel="stylesheet" href="./css/signup.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,54 +10,54 @@
 <body>
   <div class="container" id="container">
     <div class="form-container sign-up-container">
-      <form action="#">
+      <form onsubmit="event.preventDefault(); signUp();">
         <h1>Create Account</h1>
 
         <div class="input-box">
           <i class="fas fa-user"></i>
-          <input type="text" placeholder="Name" />
+          <input type="text" placeholder="Name" id="signup-name" />
         </div>
-        
+
         <div class="input-box">
           <i class="fas fa-phone"></i>
-          <input type="tel" placeholder="Phone Number" />
+          <input type="tel" placeholder="Phone Number" id="signup-phone" />
         </div>
 
         <div class="input-box">
           <i class="fas fa-envelope"></i>
-          <input type="email" placeholder="Email" />
+          <input type="email" placeholder="Email" id="signup-email" />
         </div>
 
         <div class="input-box">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" />
+          <input type="password" placeholder="Password" id="signup-password" />
         </div>
 
         <div class="input-box">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Confirm Password" />
+          <input type="password" placeholder="Confirm Password" id="signup-confirm-password" />
         </div>
 
-        
-
-        <button>Sign Up</button>
+        <button type="submit">Sign Up</button>
       </form>
     </div>
+
     <div class="form-container sign-in-container">
-      <form action="#">
+      <form onsubmit="event.preventDefault(); logIn();">
         <h1>Sign in</h1>
         <div class="input-box">
           <i class="fas fa-envelope"></i>
-          <input type="email" placeholder="Email" />
+          <input type="email" placeholder="Email" id="login-email" />
         </div>
         <div class="input-box">
           <i class="fas fa-lock"></i>
-          <input type="password" placeholder="Password" />
+          <input type="password" placeholder="Password" id="login-password" />
         </div>
         <a href="#">Forgot your password?</a>
-        <button>Sign In</button>
+        <button type="submit">Sign In</button>
       </form>
     </div>
+
     <div class="overlay-container">
       <div class="overlay">
         <div class="overlay-panel overlay-left">
@@ -77,6 +74,7 @@
     </div>
   </div>
 
+  <!-- Slide Panel Script -->
   <script>
     const signUpButton = document.getElementById('signUp');
     const signInButton = document.getElementById('signIn');
@@ -90,24 +88,12 @@
       container.classList.remove("right-panel-active");
     });
   </script>
-  <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
 
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyC4UJXlvHhSSSyfsf8G1he339GoGaTenps",
-    authDomain: "pet-sscci.firebaseapp.com",
-    projectId: "pet-sscci",
-    storageBucket: "pet-sscci.firebasestorage.app",
-    messagingSenderId: "900791572438",
-    appId: "1:900791572438:web:834cdae9e5d1f37d5bf677"
-  };
+  <!-- Firebase SDKs (v10.3.0) -->
+  <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js"></script>
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-</script>
+  <!-- Firebase Auth Logic -->
+  <script src="auth.js"></script>
 </body>
 </html>
