@@ -1,9 +1,7 @@
-// Import the core Firebase App module
-import { initializeApp } from 'firebase/app';
 
-// Import specific Firebase services you need (e.g., Authentication, Firestore)
-import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+// ✅ No imports, use global
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
 
 // Firebase config
 
@@ -16,9 +14,6 @@ const firebaseConfig = {
   appId: "1:900791572438:web:834cdae9e5d1f37d5bf677"
 };
 
-// ✅ No imports, use global
-firebase.initializeApp(firebaseConfig);
-const auth = firebase.auth();
 
 // 🔐 Sign Up
 function signUp() {
