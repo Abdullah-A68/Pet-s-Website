@@ -8,8 +8,6 @@ const firebaseConfig = {
   appId: "1:900791572438:web:834cdae9e5d1f37d5bf677"
 };
 
-firebase.initializeApp(firebaseConfig); // ✅ global reference
-const auth = firebase.auth();           // ✅ global reference
 
 
 // 🔐 Sign Up
