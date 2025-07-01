@@ -8,15 +8,20 @@ const firebaseConfig = {
   appId: "1:900791572438:web:834cdae9e5d1f37d5bf677"
 };
 
-// Initialize Firebase
+// ✅ No imports, use global
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 
-// Sign Up
+// 🔐 Sign Up
 function signUp() {
-  const email = document.getElementById("signup-email").value;
-  const password = document.getElementById("signup-password").value;
-  const confirmPassword = document.getElementById("signup-confirm-password").value;
+  const email = document.getElementById("signup-email")?.value;
+  const password = document.getElementById("signup-password")?.value;
+  const confirmPassword = document.getElementById("signup-confirm-password")?.value;
+
+  if (!email || !password || !confirmPassword) {
+    alert("⚠️ Please fill in all fields.");
+    return;
+  }
 
   if (password !== confirmPassword) {
     alert("❌ Passwords do not match");
@@ -32,10 +37,15 @@ function signUp() {
     });
 }
 
-// Log In
+// 🔐 Log In
 function logIn() {
-  const email = document.getElementById("login-email").value;
-  const password = document.getElementById("login-password").value;
+  const email = document.getElementById("login-email")?.value;
+  const password = document.getElementById("login-password")?.value;
+
+  if (!email || !password) {
+    alert("⚠️ Please enter both email and password.");
+    return;
+  }
 
   auth.signInWithEmailAndPassword(email, password)
     .then((userCredential) => {
