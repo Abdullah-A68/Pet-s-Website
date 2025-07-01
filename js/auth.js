@@ -1,4 +1,12 @@
+// Import the core Firebase App module
+import { initializeApp } from 'firebase/app';
+
+// Import specific Firebase services you need (e.g., Authentication, Firestore)
+import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
+
 // Firebase config
+
 const firebaseConfig = {
   apiKey: "AIzaSyC4UJXlvHhSSSyfsf8G1he339GoGaTenps",
   authDomain: "pet-sscci.firebaseapp.com",
